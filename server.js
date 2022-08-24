@@ -23,9 +23,14 @@ app.set("view engine", "ejs") //you can either specify ejs/HTML/pug, we imported
 
 //load assets
 app.use('/css', express.static(path.resolve(__dirname,"assets/css")))
+app.use('/img', express.static(path.resolve(__dirname,"assets/img")))
+app.use('/js', express.static(path.resolve(__dirname,"assets/js")))
+
+
 
 app.get('/',(req,res)=>{
-    res.send("Crud Apllication");
+   // res.send("Crud Apllication");
+   res.render('index');//render renders the ejs html file
 })
 
-$app.listen(PORT, ()=>{console.log(`Server is running on http://localhost:${PORT}`)})
+app.listen(PORT, ()=>{console.log(`Server is running on http://localhost:${PORT}`)})
